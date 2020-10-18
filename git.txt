@@ -1,0 +1,39 @@
+* 분산 버전 관리 시스템
+ 
+* git config -global user.name "github 닉네임"
+ex) git config --global user.name "d1nsol"
+
+* git config -global user.email "github 이메일"
+ex) git config --global user.email "jinsik0126@gmail.com"
+
+* git clone "git repository url"
+ex) git clone https://github.com/d1nsol/d1nsol.github.io.git
+
+* git init : git init 초기화, The git init command creates a new Git repository
+
+* git status : 현재 추적하지 않은 파일이나 폴더 확인
+
+* git add . : 추적되지 않은 파일을 임시로 추가, '.' 은 모든 파일을 의미
+
+* git commit -m "message" : 임시로 추가된 파일들을 확정시켜 로컬 저장소에 저장
+
+* git remote add origin https://github.com/d1nsol/d1nsol.github.io.git
+
+* git remote -v
+
+* git push origin master / git push origin +master : commit 명령어를 통해 저장된 확정 파일들을 remote 로 연결된 github 원격 저장소에 전송
+
+* git add . -> git commit -m "message" -> git push origin master
+
+* github에 프로젝트를 업로드 하는데 제외하고 싶은 파일/폴더가 있을 경우 .gitignore 파일을 사용한다.
+그런데 이미 repository에 올라와 있는 파일을 .gitignore 에 추가하고자 할 경우에는 추가적인 조치가 필요하다.
+이미 올라와있는 파일은 현재 tracking되고 있기 때문에 이 tracking을 제거해줘야 하는 것이다.
+tracking을 제거하는 방법은 어렵지 않다. 다음과 같은 방식으로 .gitignore 수정을 진행한다
+
+.gitignore 파일을 수정한다
+
+이후 다음과 같이 진행한다
+$ git rm -r --cached . // cache에 기록된 tracking 중인 파일리스트 삭제
+$ git add .
+$ git commit -m 'remove ignored file'
+$ git push {remote} {branch}
