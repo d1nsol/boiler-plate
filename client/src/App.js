@@ -10,7 +10,7 @@ import {
 import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
-
+import Auth from './hoc/auth';
 
 function App() {
   return (
@@ -28,25 +28,9 @@ function App() {
           of them to render at a time
         */}
         <Switch>
-          {/* <Route exact path="/">
-            <LandingPage />
-          </Route> */}
-          {/* <Route path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/register">
-            <RegisterPage />
-          </Route> */}
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/register" component={RegisterPage} />
-          
-          {/* <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route> */}
+          <Route exact path="/" component={Auth(LandingPage, null, true)} />
+          <Route exact path="/login" component={Auth(LoginPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
         </Switch>
       </div>
     </Router>

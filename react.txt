@@ -97,3 +97,17 @@ ps. 예전에는 npm install -g create-react-app 으로 global 디렉토리에 �
 * Redux 데이터 Flow(strict unidirectional data flow 한방향 흐름)
     action -> reducer -> store -(subscribe)-> react component -(dispatch)-> action
 * Store 는 application 의 state 를 관리
+
+* 다운 dependency
+    redux
+    react-redux
+    redux-promise
+    redux-thunk
+
+##### React Hooks
+* Class Component : 보다 많은 기능, 복잡한 코드, 성능 느림
+* Functional Component : 한정된 기능, 간단한 코드, 성능 빠름
+* 16.8 버전 이후 React Hooks, Class Component 의 기능을 Functional Component 에서도 사용 가능하게 끔...
+
+##### HOC : higherOrderComponent
+* const EnhancedComponent = higherOrderComponent(WrappedComponent);
