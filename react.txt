@@ -1,0 +1,99 @@
+##### React
+* 라이브러리 !
+* 기존 리액트 앱을 실행하기 위해선 webpack 이나 babel 같은 설정이 필요함
+* create-react-app Command 로 바로 시작할 수 있음
+* npx create-react-app . -> . 의 의미는 현재 폴더 안에 설치
+
+ps. 예전에는 npm install -g create-react-app 으로 global 디렉토리에 다운
+* npm 은 설치, npx 는 다운받지 않고, npm registry 에서 찾아서(look up) 다운로드 없이 실행 시켜준다.
+* npx 는 disc 공간 낭비 x, 항상 최신 버전 사용 가능
+
+##### Babel
+* 최신 자바스크립트 문법을 지원하지 않는 브라우저들을 위해 최신 자바스크립트 문법을 구형 브라우저에서도 호환되도록 변환시켜줌
+
+##### Webpack
+* 수많은 모듈의 bundle 화
+
+====================================================================================================
+
+##### React 구조 파악(boiler-plate 프로젝트 기준)
+* index.js : index.html 의 id = "root" 인 element 태그 안에 App.js 에서 return 되는 APP 삽입
+* webpack 이 관리하는 대상은 src 디렉토리, public 은 x
+
+* _actions, _reducers : Redux 를 위한 폴더
+* components/views : Page
+* components/views/Sections : 해당 Page 에 관련된 css 파일이나 component 들을 넣는다.
+* App.js : Routing 관련 일을 처리한다.
+* Config.js : 환경 변수같은 것들을 정하는 곳
+* hoc : Higher Order Component의 약자
+* utils : 여러군데에서 쓰일 수 있는 것을 모음
+
+##### React Router Dom
+* 페이지 이동 시 사용
+* https://reacttraining.com/react-router/web/example/basic
+* npm install react-router-dom --save
+
+##### Data Request, Response Flow, Axios
+* client 서비스가 없을 경우 POSTMAN 으로 대체했었음
+* client 가 존재하면 Axios 사용 가능
+* Axios : jQuery 의 AJAX 로 비유
+* npm install axios --save
+
+##### CORS 이슈, Proxy 설정
+* 두개의 다른 포트를 가지고 있는 서버는 아무 설정없이 Request 를 보낼 수 없다.
+* Cross-Origin- Resource Sharing (CORS) 보안정책
+* 해결방법 : Proxy
+* https://create-react-app.dev/docs/proxying-api-requests-in-development
+* npm install http-proxy-middleware --save
+
+##### Proxy Server
+*   1. 아이피를 Proxy Server 에서 임의로 바꿔 버릴 수 있다. 그래서 인터넷에 접근하는 사용자의 IP 를 모르게 된다.
+    2. 보내는 데이터도 임의로 바꿀 수 있다.
+
+* 방화벽 기능, 웹 필터 기능, 캐쉬 데이터 / 공유 데이터 제공 기능
+
+* 사용 이유 :   회사에서 직원들이나 집안에서 아이들 인터넷 사용 제어
+                캐쉬를 이용해 더 빠른 인터넷 이용 제공
+                더 나은 보안 제공
+                이용 제한된 사이트 접근 가능
+
+##### Concurrently
+* 프론트 백 서버 한번에 켜기
+* 여러개의 commands 를 동시에 작동 시킬 수 있게 해주는 tool
+* npm install concurrently --save
+
+* in package.json
+    "start": "concurrently \"command1 arg\" \"command2 arg\""
+
+##### CSS Framework Ant Design
+* css 이외에 기능을 만드는데 더욱 집중하자!
+* 종류 :    Material UI
+            React Bootstrap
+            Semantic UI
+            Ant Design
+            Materialize
+
+* Ant Design
+    장점 : 스타일이 깔끔, 엔터프라이즈 환경에 어울리는 디자인, 편리한 사용성            
+    단점 : 사이즈가 큼
+    https://ant.design/
+
+* npm install antd --save
+* import { DatePicker } from 'antd';
+
+    ReactDOM.render(<DatePicker />, mountNode);
+* import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+
+##### Redux
+* predictable state container for JavaScript apps. 상태 관리 라이브러리
+* props :   properties
+            컴포넌트 간에 데이터를 주고 받음. 부모 컴포넌트에서 자식 컴포넌트로만...
+            immutable
+* state :   자식 컴포넌트 안에서 데이터 변화 가능
+            mutable
+            state 가 변하면 re-render
+
+* Redux 는 state 를 관리하는 것. Store 를 통해 관리
+* Redux 데이터 Flow(strict unidirectional data flow 한방향 흐름)
+    action -> reducer -> store -(subscribe)-> react component -(dispatch)-> action
+* Store 는 application 의 state 를 관리

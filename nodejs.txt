@@ -1,5 +1,6 @@
 @@@@@ NodeJS
 * server side 에서도 javascript 가능
+* NPM ? Node package manager : registry(저장소) 역할
 * express.js - node js 가 자동차의 엔진이라고 생각하면, 엔진을 가지고 자동차의 바퀴도 만들고, 브레이크 시스템도 만들게 해주는 프레임워크
 
 * nodejs 설치
