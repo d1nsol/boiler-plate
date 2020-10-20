@@ -21,8 +21,11 @@ function LoginPage(props) {
     const onSubmitHandler = (event) => {
         event.preventDefault();
 
-        console.log('Email : ', Email);
-        console.log('Password : ', Password);
+        if(!Email) {
+            return alert('이메일을 입력해 주세요.');
+        } else if(!Password) {
+            return alert('비밀번호를 입력해 주세요.');
+        }
 
         let body = {email: Email,password: Password};
 
